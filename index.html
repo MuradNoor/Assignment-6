@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Forum</title>
+    <!-- daisyUI and tailwind cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font awesome cdn -->
+    <script
+      src="https://kit.fontawesome.com/1131c4ee05.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- font Mulish -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- styles -->
+    <style>
+      .font-mulish {
+        font-family: "Mulish";
+      }
+    </style>
+  </head>
+  <body class="font-mulish">
+    <header class="container lg:mx-auto m-0 lg:mt-14 lg:px-4 px-4">
+      <nav class="mb-12">
+        <div class="navbar">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a
+                    ><i
+                      class="fa-solid fa-house text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                    ></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    ><i
+                      id="pencil"
+                      class="fa-solid fa-pencil text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                    ></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    ><i
+                      id="user"
+                      class="fa-solid fa-user-plus text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                    ></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    ><i
+                      id="flag"
+                      class="fa-regular fa-flag text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                    ></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <a
+              onclick="loadApi()"
+              class="btn btn-ghost text-4xl text-[#12132D] font-black"
+              >ReTro</a
+            >
+          </div>
+          <div class="navbar-end hidden lg:flex">
+            <ul class="flex gap-3 px-1">
+              <li>
+                <a
+                  ><i
+                    title="Home"
+                    class="fa-solid fa-house text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  ><i
+                    title="Pencil"
+                    class="fa-solid fa-pencil text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  ><i
+                    title="Users"
+                    class="fa-solid fa-user-plus text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  ><i
+                    title="Bookmark"
+                    class="fa-regular fa-flag text-[#12132D99] border-2 border-[#12132D08] p-4 bg-[#0307121A] rounded-full"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="">
+            <button
+              class="btn bg-[#797DFC] text-white lg:px-10 py-5 text-xl font-bold text-center rounded-[50px] whitespace-nowrap"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="her h-[550px] bg-[#12132D] bg-cover lg:p-24"
+        style="background-image: url(images/bgbanner.png); border-radius: 32px"
+      >
+        <div
+          class="lg:flex lg:justify-center items-center lg:gap-2 gap-5 lg:p-5 p-1"
+        >
+          <div class="flex-1">
+            <h1
+              class="lg:text-6xl lg:text-left text-center text-2xl font-black mb-5 text-white"
+            >
+              Welcome to the <br />
+              <span class="text-[#797DFC99]">ReTro</span> Forum
+            </h1>
+            <p class="mb-8 p-3 text-xl text-[#FFFFFFCC] font-medium">
+              Share your favorite opinion and win and wp forum coffee mug!
+            </p>
+            <!-- search button -->
+            <div class="mb-3 w-full">
+              <div
+                class="lg:w-[400px] flex items-center justify-between p-1 bg-white rounded-[50px]"
+              >
+                <input
+                  id="search-field"
+                  class="border-none p-2"
+                  type="text"
+                  placeholder="Search here anything"
+                />
+                <button
+                  onclick="searchPost()"
+                  class="btn btn-neutral border-none bg-[#797DFC] text-white rounded-[46px] py-7 join-item text-xl"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-[30px] justify-center items-center text-center lg:flex-1 flex-col"
+          >
+            <div class="lg:p-5 p-8">
+              <div class="flex justify-around m-4">
+                <div class="space-y-6">
+                  <p>Registered Users</p>
+                  <p>Forum</p>
+                  <p>Topics</p>
+                  <p>Replies</p>
+                </div>
+                <div class="space-y-6">
+                  <p>01</p>
+                  <p>05</p>
+                  <p>01</p>
+                  <p>01</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="mt-24 container mx-auto">
+      <!-- Lets Discuss section -->
+      <section class="container mx-auto space-y-6 mb-24 px-4">
+        <h1 class="text-[#12132D] text-4xl font-black text-center">
+          Let’s Discuss
+        </h1>
+        <div class="flex justify-center">
+          <p
+            class="lg:max-w-3xl font-normal text-lg text-center text-[#12132D99] mb-12"
+          >
+            Yes, you can run unit tests and view the results directly within the
+            app. The integrated testing features allow for a streamlined .
+          </p>
+        </div>
+        <div class="lg:flex justify-center gap-3">
+          <!-- post container -->
+          <div id="post-container" class="lg:w-[70%] rounded-lg px-2">
+            <!-- post container start -->
+            <!-- post card end -->
+          </div>
+          <div
+            id="read-post"
+            class="bg-[#12132D0D] lg:w-[30%] h-[20%] rounded-lg p-6"
+          >
+            <div class="flex justify-between">
+              <h1 class="text-[#12132D] text-xl font-bold">Title</h1>
+              <p class="text-[#12132D99]">
+                <i class="fa-solid fa-check-double text-[#10B981]"></i>
+                Mark as read
+                <span id="counter" class="text-[#10B981] font-bold"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- join forum section -->
+      <section class="mt-24 mb-24 px-4">
+        <div class="hero bg-[#12132D] lg:h-[400px] rounded-[32px] px-4">
+          <div class="hero-content flex-col lg:flex-row-reverse px-5">
+            <img src="images/joinforum.png" class="rounded-lg" />
+            <div>
+              <h1 class="text-5xl lg:text-[40px] text-white font-black">
+                Join Our Forum
+              </h1>
+              <p class="py-6 text-lg text-[#FFFFFFCC]">
+                Share your favorite opinion and win and wp forum coffee mug!
+                Yes, you can run unit tests and view the results directly within
+                the app.
+              </p>
+              <button
+                class="btn text-white text-xl font-bold bg-[#797DFC] rounded-[50px] border-none px-10 py-4"
+              >
+                Registered Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Latest Posts section -->
+      <section class="space-y-6 container lg:mx-auto mb-24 px-4">
+        <h1 class="text-[#12132D] text-4xl font-black text-center">
+          Latest Posts
+        </h1>
+        <div class="flex justify-center items-center">
+          <p
+            class="lg:max-w-3xl font-normal text-lg text-center text-[#12132D99] mb-12"
+          >
+            Yes, you can run unit tests and view the results directly within the
+            app. The integrated testing features allow for a streamlined .
+          </p>
+        </div>
+        <!-- latest post container -->
+        <div
+          id="latest-post-container"
+          class="grid lg:grid-cols-3 grid-cols-1 gap-5"
+        >
+          <!-- latest post start -->
+        </div>
+      </section>
+    </main>
+    <footer
+      class="flex flex-col justify-center footer-center bg-[#12132D1A] p-32"
+    >
+      <h1 class="text-4xl text-[#12132D] font-black mb-4 text-center p-auto">
+        ReTro
+      </h1>
+      <p class="font-bold text-[#12132DB3] mb-8 text-center">
+        Retro Forum is a community for vintage tech, classic gaming, and
+        nostalgic discussions. Relive the past and keep the retro spirit alive!
+      </p>
+      <nav class="flex gap-3 mb-12 justify-center">
+        <div class="grid grid-flow-col gap-4">
+          <a>
+            <i class="fa-brands fa-twitter text-2xl text-[#12132D]"></i>
+          </a>
+          <a>
+            <i class="fa-brands fa-facebook text-2xl text-[#12132D]"></i>
+          </a>
+          <a>
+            <i
+              class="fa-brands fa-square-instagram text-2xl text-[#12132D]"
+            ></i>
+          </a>
+          <a>
+            <i class="fa-brands fa-github text-2xl text-[#12132D]"></i>
+          </a>
+        </div>  
+      </nav>
+      <hr class="mb-12 text-[#03235E1A]" />
+      <p class="text-[#12132D66] text-center">
+        &copy;2025, All Rights Reserved.
+      </p>
+    </footer>
+    <script src="JS/main.js"></script>
+  </body>
+</html>
