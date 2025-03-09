@@ -90,7 +90,7 @@
               </ul>
             </div>
             <a
-              onclick="loadApi()"
+             
               class="btn btn-ghost text-4xl text-[#12132D] font-black"
               >ReTro</a
             >
@@ -169,7 +169,7 @@
                   placeholder="Search here anything"
                 />
                 <button
-                  onclick="searchPost()"
+                  onclick="searchPost()" id="searchButton"
                   class="btn btn-neutral border-none bg-[#797DFC] text-white rounded-[46px] py-7 join-item text-xl"
                 >
                   Search
@@ -214,12 +214,21 @@
             app. The integrated testing features allow for a streamlined .
           </p>
         </div>
+          <!-- loading spinner -->
+        <div class="flex justify-center">
+          <span class="loading loading-bars loading-xl text-3xl hidden" id="loading"></span>
+        </div>
         <div class="lg:flex justify-center gap-3">
           <!-- post container -->
           <div id="post-container" class="lg:w-[70%] rounded-lg px-2">
             <!-- post container start -->
             <!-- post card end -->
           </div>
+          <!-- search post container -->
+           <div id="search-post-container" class="lg:w-[70%] rounded-lg px-2 hidden">
+            <!-- search post container start -->
+             <!-- search post container end  -->
+           </div>
           <div
             id="read-post"
             class="bg-[#12132D0D] lg:w-[30%] h-[20%] rounded-lg p-6"
